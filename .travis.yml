@@ -12,7 +12,7 @@ install:
   - "travis_retry pip install coveralls"
   - "travis_retry pip install --pre -e .[testing]"
 
-script: "python setup.py nosetests --with-coverage --cover-package=depot --cover-erase"
+script: "python setup.py nosetests --with-coverage --cover-package=tgext.utils --cover-erase"
 
 after_success:
   coveralls

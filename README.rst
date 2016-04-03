@@ -1,6 +1,18 @@
 About tgext.utils
 =================
 
+.. image:: https://travis-ci.org/amol-/tgext.utils.png?branch=master
+    :target: https://travis-ci.org/amol-/tgext.utils
+
+.. image:: https://coveralls.io/repos/amol-/tgext.utils/badge.png?branch=master
+    :target: https://coveralls.io/r/amol-/tgext.utils?branch=master
+
+.. image:: https://img.shields.io/pypi/v/tgext.utils.svg
+   :target: https://pypi.python.org/pypi/tgext.utils
+
+.. image:: https://img.shields.io/pypi/dm/tgext.utils.svg
+   :target: https://pypi.python.org/pypi/tgext.utils
+
 tgext.utils is a collection of utilities for the TurboGears2 web framework.
 
 Installing
