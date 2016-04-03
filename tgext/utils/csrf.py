@@ -116,6 +116,6 @@ def csrf_protect(remainder, params):
         tg.abort(403, 'The form you submitted is invalid or has expired')
 
     form_token = req.args_params.get(token_name)
-    if form_token != token:
+    if form_token != token.decode(ENCODING):
         tg.response.delete_cookie(token_name, path=path)
         tg.abort(403, 'The form you submitted is invalid or has expired')
