@@ -22,7 +22,7 @@ def _metatag(name, value):
         )
 
 
-def metatags(**kwargs):
+def metatags(d=None, **kwargs):
     """Generate meta tags.
 
     :param title: og,twitter,itemprop title
@@ -30,7 +30,9 @@ def metatags(**kwargs):
     :param image: og,twitter,itemprop thumbnail
     :param url: og,twitter,itemprop resource url
     """
+    d = d or OrderedDict()
+    d.update(kwargs)
     tags = []
-    for tag in kwargs:
-        tags.extend(_metatag(tag, kwargs[tag]))
+    for tag in d:
+        tags.extend(_metatag(tag, d[tag]))
     return Markup('\n'.join(tags))
