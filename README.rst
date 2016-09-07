@@ -54,3 +54,22 @@ no particular action or check is required on this action:
     def post_form(self, **kwargs):
         return 'OK!'
 
+MetaTags
+========
+
+``tgext.utils.meta.metatags`` provides a convenient way to generate common meta tags
+for a web page.
+
+In ``lib/helpers.py`` add:
+
+.. code-block:: python
+
+    from tgext.utils.meta import metatags
+
+Then in your pages:
+
+.. code-block:: html+genshi
+
+    ${h.metatags(title="pagetitle", description="Page Description", image="http://url/myimage.png")}
+
+
