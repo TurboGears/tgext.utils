@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 import string
+from collections import OrderedDict
 from markupsafe import Markup
 
-TEMPLATES = {
-    'itemprop': string.Template('<meta itemprop="${name}" content="${value}"/>'),
-    'og': string.Template('<meta property="og:${name}" content="${value}"/>'),
-    'twitter': string.Template('<meta name="twitter:${name}" content="${value}"/>')
-}
+
+TEMPLATES = OrderedDict((
+    ('og', string.Template('<meta property="og:${name}" content="${value}"/>')),
+    ('twitter', string.Template('<meta name="twitter:${name}" content="${value}"/>')),
+    ('itemprop', string.Template('<meta itemprop="${name}" content="${value}"/>'))
+))
 TRANSLATIONS = {
     'title': {'itemprop': 'name'}
 }
