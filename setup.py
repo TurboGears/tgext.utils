@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-import sys, os
+import os
 
 here = os.path.abspath(os.path.dirname(__file__))
 try:
@@ -25,7 +25,7 @@ setup(
     url='https://github.com/amol-/tgext.utils',
     license='MIT',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-    namespace_packages = ['tgext'],
+    namespace_packages=['tgext'],
     include_package_data=True,
     zip_safe=False,
     install_requires=[
