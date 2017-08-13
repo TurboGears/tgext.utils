@@ -1,32 +1,30 @@
-import random
-import string
+import uuid
 from os import path, mkdir
 
 from tg import config
+from tg.util.files import safe_filename
 
 
 def store(data):
-    extension = tell_extension(data)
-    filename = generate_id(extension)
-    destination = _specify_path(filename)
+    folder_name = generate_uuid()
+    original_filename = safe_filename(data.filename)
+    destination = _specify_path(folder_name, original_filename)
 
     with open(destination, mode='wb') as dest:
         content = data.file.read()
         dest.write(content)
-        return filename
+        return destination
 
 
-def _specify_path(filename):
-    storage_path = path.join(config['paths']['static_files'], '..', 'storage')
+def _specify_path(folder_name, original_filename):
+    storage_path = path.join(config['paths']['static_files'])
     if not path.exists(storage_path):
         mkdir(storage_path)
-    return '{}/{}'.format(storage_path, filename)
+
+    destination_folder = path.join(storage_path, folder_name)
+    mkdir(destination_folder)
+    return path.join(destination_folder, original_filename)
 
 
-def tell_extension(file):
-    return file.filename.split('.')[-1]
-
-
-def generate_id(ext, size=16, chars=string.ascii_lowercase + string.digits):
-    uid = ''.join(random.choice(chars) for _ in range(size))
-    return '{}.{}'.format(uid, ext)
+def generate_uuid():
+    return str(uuid.uuid1())

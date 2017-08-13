@@ -31,7 +31,7 @@ class TestStorageManager(object):
     @classmethod
     def setup_class(cls):
         config = AppConfig(minimal=True, root_controller=RootController())
-        config.paths['static_files'] = path.join(TESTS_DIR, 'stuff')
+        config.paths['static_files'] = PATH_TO_STORAGE
         cls.wsgi_app = config.make_wsgi_app()
 
     def make_app(self, **options):
