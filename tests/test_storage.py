@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from os import path
+from tempfile import mkdtemp
 
 from tg import expose, TGController, AppConfig
 from webtest import TestApp, Upload
@@ -10,7 +11,7 @@ from tgext.utils.storage import store
 
 TESTS_DIR = path.abspath(path.join(path.dirname(tgext.__file__), '..', 'tests'))
 PATH_TO_FILE = path.join(TESTS_DIR, 'stuff', 'tg.png')
-PATH_TO_STORAGE = path.join(TESTS_DIR, 'storage')
+PATH_TO_STORAGE = mkdtemp()
 
 
 class RootController(TGController):

@@ -5,14 +5,21 @@ from tg import config
 from tg.util.files import safe_filename
 
 
+CHUNK_SIZE = 4096
+
+
 def store(data):
     folder_name = generate_uuid()
     original_filename = safe_filename(data.filename)
     destination = _specify_path(folder_name, original_filename)
 
     with open(destination, mode='wb') as dest:
-        content = data.file.read()
-        dest.write(content)
+        while True:
+            chunk = data.file.read(CHUNK_SIZE)
+            if not chunk:
+                break
+            dest.write(chunk)
+
         return destination
 
 
