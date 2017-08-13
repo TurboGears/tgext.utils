@@ -1,12 +1,11 @@
 import random
 import string
 from os import path, mkdir
-from cgi import FieldStorage
 
 from tg import config
 
 
-def store(data: FieldStorage):
+def store(data):
     extension = tell_extension(data)
     filename = generate_id(extension)
     destination = _specify_path(filename)
@@ -24,7 +23,7 @@ def _specify_path(filename):
     return '{}/{}'.format(storage_path, filename)
 
 
-def tell_extension(file: FieldStorage):
+def tell_extension(file):
     return file.filename.split('.')[-1]
 
 
