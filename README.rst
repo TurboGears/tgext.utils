@@ -70,3 +70,17 @@ Then in your pages:
     ${h.metatags(title="pagetitle", description="Page Description", image="http://url/myimage.png")}
 
 
+Storage
+=======
+
+``tgext.utils.storage`` is a tool for storing files into /public dir in separated folders.
+
+.. code-block:: python
+
+    from tgext.utils.storage import store
+
+    filename = store(ufile)  # ufile is an instance of cgi.FieldStorage
+
+file is stored inside /public/storage/${uuid1} folder thus also accessible using internal tg file serving.
+
+

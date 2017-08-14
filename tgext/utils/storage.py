@@ -24,7 +24,7 @@ def store(data):
 
 
 def _specify_path(folder_name, original_filename):
-    storage_path = path.join(config['paths']['static_files'])
+    storage_path = path.join(config['paths']['static_files'], 'storage')
     if not path.exists(storage_path):
         mkdir(storage_path)
 
