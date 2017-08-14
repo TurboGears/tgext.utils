@@ -81,6 +81,6 @@ Storage
 
     filename = store(ufile)  # ufile is an instance of cgi.FieldStorage
 
-file is stored inside /public/${uuid1} folder thus also accessible using internal tg file serving.
+file is stored inside /public/storage/${uuid1} folder thus also accessible using internal tg file serving.
 
 
