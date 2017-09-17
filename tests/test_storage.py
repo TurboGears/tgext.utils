@@ -9,7 +9,7 @@ import tgext
 from tgext.utils.storage import store
 
 
-TESTS_DIR = path.abspath(path.join(path.dirname(tgext.__file__), '..', 'tests'))
+TESTS_DIR = path.abspath(path.join(path.dirname(__file__), '..', 'tests'))
 PATH_TO_FILE = path.join(TESTS_DIR, 'stuff', 'tg.png')
 PATH_TO_STORAGE = mkdtemp()
 
