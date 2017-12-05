@@ -69,6 +69,24 @@ Then in your pages:
 
     ${h.metatags(title="pagetitle", description="Page Description", image="http://url/myimage.png")}
 
+Slug
+====
+
+``tgext.utils.slug`` provides a way to generate slug for your page
+
+to generate a slug use:
+
+.. code-block:: python
+
+    from tgext.utils.slug import slugify
+    myslug = slugify(model_id, string_to_be_inserted_in_the_url)
+
+to get the id from a slug use:
+
+.. code-block:: python
+
+    from tgext.utils.slug import slug2entityid
+    slug2entityid(myslug)
 
 Storage
 =======
