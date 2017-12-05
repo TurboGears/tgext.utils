@@ -11,6 +11,6 @@ def slugify(entity_id, value):
 
 def slug2entityid(slug):
     try:
-        return slug.split('-', 1)[-1]
+        return slug.rsplit('-', 1)[-1]
     except:
         return slug
