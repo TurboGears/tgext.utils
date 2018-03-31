@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import string
 from collections import OrderedDict
-from markupsafe import Markup
+from markupsafe import Markup, escape
 
 
 TEMPLATES = OrderedDict((
@@ -18,7 +18,7 @@ def _metatag(name, value):
     for ns, tmpl in TEMPLATES.items():
         yield tmpl.substitute(
             name=TRANSLATIONS.get(name, {}).get(ns, name),
-            value=value
+            value=escape(value)
         )
 
 
