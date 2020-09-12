@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from tg import expose, TGController, AppConfig, request
-from webtest import TestApp
+import webtest
 from tgext.utils.csrf import csrf_protect, csrf_token
 
 
@@ -32,7 +32,7 @@ class TestWSGIMiddleware(object):
         cls.wsgi_app = config.make_wsgi_app()
 
     def make_app(self, **options):
-        return TestApp(self.wsgi_app)
+        return webtest.TestApp(self.wsgi_app)
 
     def test_token_is_set(self):
         app = self.make_app()

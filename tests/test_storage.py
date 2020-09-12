@@ -3,7 +3,7 @@ from os import path
 from tempfile import mkdtemp
 
 from tg import expose, TGController, AppConfig
-from webtest import TestApp, Upload
+import webtest
 
 import tgext
 from tgext.utils.storage import store
@@ -36,13 +36,13 @@ class TestStorageManager(object):
         cls.wsgi_app = config.make_wsgi_app()
 
     def make_app(self, **options):
-        return TestApp(self.wsgi_app)
+        return webtest.TestApp(self.wsgi_app)
 
     def test_file_is_stored(self):
         app = self.make_app()
         form = app.get('/form').forms[0]
 
-        form['file'] = Upload(PATH_TO_FILE)
+        form['file'] = webtest.Upload(PATH_TO_FILE)
 
         stored_filename = form.submit().text
         stored_file_path = path.join(PATH_TO_STORAGE, stored_filename)
