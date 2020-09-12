@@ -1,16 +1,17 @@
 language: python
 python:
   - "2.7"
-  - "3.3"
   - "3.4"
   - "3.5"
+  - "3.7"
+  - "3.8"
 
 install:
-  - "travis_retry pip install nose"
+  - "travis_retry pip install pytest pytest-cov"
   - "travis_retry pip install coveralls"
   - "travis_retry pip install --pre -e .[testing]"
 
-script: "python setup.py nosetests --with-coverage --cover-package=tgext.utils --cover-erase"
+script: "pytest --cov=tgext.utils"
 
 after_success:
   coveralls
