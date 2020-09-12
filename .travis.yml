@@ -7,7 +7,7 @@ python:
   - "3.8"
 
 install:
-  - "travis_retry pip install pytest pytest-cov"
+  - "travis_retry pip install -U pytest pytest-cov"
   - "travis_retry pip install coveralls"
   - "travis_retry pip install --pre -e .[testing]"
 

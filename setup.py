@@ -9,7 +9,7 @@ except IOError:
 
 version = "0.0.3"
 
-TEST_DEPENDENCIES = ['nose',
+TEST_DEPENDENCIES = ['pytest',
                      'WebTest']
 
 
@@ -31,13 +31,11 @@ setup(
     install_requires=[
         "TurboGears2 >= 2.3.7",
     ],
-    tests_require=TEST_DEPENDENCIES,
     extras_require={
         # Used by Travis and Coverage due to setup.py nosetests
         # causing a coredump when used with coverage
         'testing': TEST_DEPENDENCIES,
     },
-    test_suite='nose.collector',
     entry_points="""
     # -*- Entry points: -*-
     """
