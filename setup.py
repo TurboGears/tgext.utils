@@ -7,7 +7,7 @@ try:
 except IOError:
     README = ''
 
-version = "0.0.3"
+version = "0.0.4"
 
 TEST_DEPENDENCIES = ['pytest',
                      'WebTest']
